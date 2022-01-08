@@ -15,6 +15,7 @@ def printBoard(board):
 
 # put the players input into the board, changes the look of the board
 def inputBoard(player, playerInput): # dictionary for player, integer for playerInput
+	check if playeyInput is a valid integer
 	check if game tile has a game piece already
 		if game tile has a piece already inside, return false
 		else Put desired players integer into the myboard dictionary using indexing
@@ -42,10 +43,6 @@ def boardReset():
 	plug in the original board containing only spaces
 
 # main game setup
-print: are you ready to play?
-get input:
-	if: yes, continue
-	else: break
 
 print player1 if they want to be X or O
 set player1Character to be the input of the question
@@ -57,6 +54,10 @@ print scores
 
 # main while loop , if broken , game will end
 while True:
+	print: are you ready to play?
+	get input:
+	if: yes, continue
+	else: break
 
 	call printBoard() method with myboard as input to display board to get the game feel
 
@@ -70,7 +71,11 @@ while True:
 
 		check the board to see if someone won or game board is full using winCheck
 			if someone won or game board is full, break out of loop
-			else: return to top of while loop
+			else: 
+				if player1 turn, change to player2
+				elif player2 turn change to player1
+				return to top of while loop
+
 
 	call the scoreCounter() method with winner inputed to add to the overall scoreCounter
 	print scores 
@@ -78,3 +83,13 @@ while True:
 	print: ask players if they want to play again
 		if yes, return to the top of the while loop
 		else break out of loop
+
+
+# problems/ things i didn't account for
+# 1. function for changing the player's name
+# 2. lack of knowledge on dictionaries. I didn't know you can't call a key using it's value/
+#		if it's possible, i don't know how. Maybe using value method, and the output saved to a
+# 		variable that could be used to determine which player has which game piece
+# 3. The dictionary and lists seem redundant, what's the better way?
+# 		The reason for it is so that the player their game piece, usually the beginning of the game
+# 
