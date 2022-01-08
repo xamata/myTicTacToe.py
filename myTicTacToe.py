@@ -12,11 +12,11 @@ player1Score = 0
 player2Score = 0
 tieScore = 0
 
-# player dictionary that will account for player1, player2, and tie, with their gamepieces
-playerDict = {'Player 1': ' ', 'Player 2': ' ', 'Tie': 3}
+# player dictionary that will account for player1, player2, with their gamepieces
+playerDict = {'Player 1': ' ', 'Player 2': ' '}
 
 # player list to keep account of which player is going
-playerList = ['Player 1', 'Player 2']
+playerList = ['Player 1', 'Player 2', 'Tie']
 
 # print out the boardgame
 def printBoard(board):
@@ -26,6 +26,7 @@ def printBoard(board):
 	print('-+-+-')
 	print(board[6] + boarder + board[7] + boarder + board[8])
 
+# changes playerTurn from round to round
 def playerChange(player):
 	if player == playerList[0]:
 		return playerList[1]
@@ -66,7 +67,7 @@ def winChecker(board):
 		return playerY
 	elif (' ' not in board[0] and ' ' not in board[1] and ' ' not in board[2] and ' ' not in board[3] and ' ' not in board[4] and
 		' ' not in board[5] and ' ' not in board[6] and ' ' not in board[7] and ' ' not in board[8]):
-		return 'playerTie'
+		return playerList[2]
 	else:
 		pass
 
@@ -140,7 +141,7 @@ while True:
 			player2Score += 1
 			printBoard(myboard)
 			break
-		elif winCheck == 'playerTie':
+		elif winCheck == 'Tie':
 			print("It's a tie!")
 			tieScore += 1
 			printBoard(myboard)
